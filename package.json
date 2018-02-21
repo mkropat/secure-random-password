@@ -1,0 +1,28 @@
+{
+  "name": "secure-random-password",
+  "version": "0.1.0",
+  "description": "Generate passwords using a cryptographically-strong source of randomness",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ignore-pattern *.spec.js lib index.js",
+    "test": "npm run lint && jest"
+  },
+  "keywords": [
+    "secure",
+    "random",
+    "password",
+    "generator"
+  ],
+  "author": "Michael Kropat",
+  "license": "Apache-2.0",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "secure-random": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "jest": "^22.4.0"
+  }
+}
