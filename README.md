@@ -1,6 +1,6 @@
 # secure-random-password
 
-__secure-random-password__ is a password generator that wraps [secure-random](https://www.npmjs.com/package/secure-random) so your passwords will be generated using a cryptographically-secure source of entropy, __whether running in the browser or Node.js__. It has support to generate passwords that meet arbitrary __complexity requirements__.
+__secure-random-password__ is a password generator that wraps [secure-random](https://www.npmjs.com/package/secure-random) so your passwords will be generated using a cryptographically-secure source of entropy, __whether running in the [browser](#browser-support) or Node.js__. It has support to generate passwords that meet arbitrary __complexity requirements__.
 
 ## Installation
 
@@ -15,6 +15,8 @@ First import the module. For example, in Node.js:
 ```javascript
 > const password = require('secure-random-password');
 ```
+
+(See [Browser Support](#browser-support) if you're running in a browser.)
 
 If you just want a password:
 
@@ -171,4 +173,30 @@ It supports all the same options as the `randomPassword` function:
 ```javascript
 > password.randomString({ length: 8 })
 '!t1OP5i#'
+```
+
+## Browser Support
+
+__secure-random-password__ is written to the ES5 standard and should run in all major browsers. There are two ways to include it:
+
+### 1. CommonJS Support
+
+If you're using a build system, such as Webpack, you can import the module like normal:
+
+```javascript
+const password = require('secure-random-password');
+```
+### 2. Browser Bundle
+
+Alternatively, you can [download the bundle](/dist/secure-random-password.min.js) and reference it on your page:
+
+```html
+<script src="/your/js/dir/secure-random-password.min.js"></script>
+```
+
+The module is accessible via the `secureRandomPassword` global:
+
+```javascript
+> secureRandomPassword.randomPassword()
+"zrTpxdktkm*p"
 ```
