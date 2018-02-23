@@ -29,7 +29,7 @@ function randomPassword(opts) {
 
   var characterRules = translateRules(opts);
 
-  if (!Number.isInteger(opts.length)) {
+  if (!util.isInteger(opts.length)) {
     throw new Error('length must be an integer');
   }
   if (opts.length < 1) {
