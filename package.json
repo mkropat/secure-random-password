@@ -4,6 +4,7 @@
   "description": "Generate passwords using a cryptographically-strong source of randomness",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "lint": "eslint --ignore-pattern *.spec.js lib index.js",
     "test": "npm run lint && jest"
   },
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "eslint": "^4.18.1",
-    "jest": "^22.4.0"
+    "jest": "^22.4.0",
+    "webpack": "^3.11.0"
   }
 }

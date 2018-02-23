@@ -1,0 +1,1 @@
+window.secureRandomPassword = require('./index');
