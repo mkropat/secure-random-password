@@ -200,3 +200,9 @@ The module is accessible via the `secureRandomPassword` global:
 > secureRandomPassword.randomPassword()
 "zrTpxdktkm*p"
 ```
+
+## Disclaimer
+
+This library is released as-is. Use it at your own risk.
+
+There is no guarantee of support. If you do run into issues though, [we'd love to hear about it](/../../issues).
