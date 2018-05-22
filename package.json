@@ -16,6 +16,7 @@
   ],
   "author": "Michael Kropat",
   "license": "Apache-2.0",
+  "repository": "github:rackerlabs/secure-random-password",
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "./coverage/",
