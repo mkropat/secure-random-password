@@ -1,9 +1,13 @@
 module.exports = {
     "env": {
         "browser": true,
-        "commonjs": true
+        "commonjs": true,
+        "jest": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
     "rules": {
         "indent": [
             "error",
