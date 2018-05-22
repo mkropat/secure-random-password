@@ -1,5 +1,7 @@
 # secure-random-password
 
+[![Build Status](https://travis-ci.org/rackerlabs/secure-random-password.svg?branch=master)](https://travis-ci.org/rackerlabs/secure-random-password) [![codecov](https://codecov.io/gh/rackerlabs/secure-random-password/branch/master/graph/badge.svg)](https://codecov.io/gh/rackerlabs/secure-random-password)
+
 __secure-random-password__ is a password generator that wraps [secure-random](https://www.npmjs.com/package/secure-random) so your passwords will be generated using a cryptographically-secure source of entropy, __whether running in the [browser](#browser-support) or Node.js__. It has support to generate passwords that meet arbitrary __complexity requirements__.
 
 ## Installation
