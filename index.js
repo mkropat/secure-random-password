@@ -83,9 +83,9 @@ function generatePassword(characterRules, length, random) {
     .filter(function (rule) { return !rule.exactly })
     .map(function (rule) { return rule.characters })
     .join('');
-
   var randomChoices = util.range(length - requiredChoices.length)
     .map(function () { return random.choose(fillCharcters) });
+
   var shuffled = random.shuffle(requiredChoices.concat(randomChoices));
   return shuffled.join('');
 }
