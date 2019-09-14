@@ -4,6 +4,14 @@
 
 __secure-random-password__ is a password generator that wraps [secure-random](https://www.npmjs.com/package/secure-random) so your passwords will be generated using a cryptographically-secure source of entropy, __whether running in the [browser](#browser-support) or Node.js__. It has support to generate passwords that meet arbitrary __complexity requirements__.
 
+## Try It
+
+Curious to see this library in action? Head over to the [demo site](https://www.codetinkerer.com/passwords/) and open up your developer console:
+
+![console screenshot](https://www.codetinkerer.com/passwords/img/password-site-console.png)
+
+All functionality can be accessed through the `secureRandomPassword` global variable. Keep reading for example usage.
+
 ## Installation
 
 ```
