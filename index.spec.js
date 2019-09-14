@@ -7,7 +7,7 @@ describe('passwordGenerator', () => {
     random = {
       choose: jest.fn(),
       shuffle: jest.fn(x => x),
-    }
+    };
     random.choose.mockReturnValue('Q');
   });
 
