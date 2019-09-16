@@ -23,7 +23,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "secure-random": "^1.1.1"
+    "secure-random": "^1.1.2"
   },
   "devDependencies": {
     "eslint": "^6.4.0",
