@@ -128,6 +128,17 @@ __Note__: ambiguous characters are only removed if there is more than one ambigu
 'WG86SAH22SWB' // output will never contain an 'O' (or a '0' for that matter)
 ```
 
+#### Random Length
+
+In case you want the exact `length` to be random, you can pass in a range:
+
+```javascript
+> password.randomPassword({ length: [6, 8], characters: password.digits })
+'6324'
+```
+
+The generated password will have at least 6 characters, but no more than 8 characters. In other words, both the lower and the upper bounds are inclusive.
+
 #### Predicate
 
 If you need the password to meet some arbitrary complexity requirement, you can pass in a `predicate` function.
