@@ -1,6 +1,6 @@
 {
   "name": "secure-random-password",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generate passwords using a cryptographically-strong source of randomness",
   "main": "index.js",
   "scripts": {
@@ -26,9 +26,9 @@
     "secure-random": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^6.4.0",
+    "eslint": "^6.8.0",
     "jest": "^24.9.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
