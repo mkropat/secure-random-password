@@ -1,6 +1,6 @@
 {
   "name": "secure-random-password",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Generate passwords using a cryptographically-strong source of randomness",
   "main": "index.js",
   "scripts": {
