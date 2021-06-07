@@ -57,7 +57,7 @@ function randomPassword(opts) {
 
   var allExactly = characterRules.every(function (rule) { return rule.exactly });
   if (allExactly) {
-    var exactlyLength = characterRules.reduce(function (l, r) { return l.exactly + r.exactly }, 0);
+    var exactlyLength = characterRules.reduce(function (acc, r) { return acc + r.exactly }, 0);
     if (exactlyLength !== opts.length) {
       throw new Error('Must pass a set without exactly rule to generate the specified length');
     }
