@@ -193,6 +193,23 @@ describe('passwordGenerator', () => {
         ]
       })).toThrow('Must pass a set without exactly rule to generate the specified length');
     });
+
+    it('accepts a totaled number of exactly character sets + required sets', () => {
+      expect(() => randomPassword({
+        length: 10,
+        characters: [
+          { characters: '123', exactly: 10 }
+        ]
+      })).not.toThrow();
+
+      expect(() => randomPassword({
+        length: 30,
+        characters: [
+          { characters: '123', exactly: 10 },
+          { characters: '123', exactly: 20 }
+        ]
+      })).not.toThrow();
+    });
   });
 
   describe('avoidAmbiguous option', () => {
