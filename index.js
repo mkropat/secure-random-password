@@ -29,13 +29,23 @@ function randomPassword(opts) {
 
   var characterRules = translateRules(opts);
 
-  if (!util.isInteger(opts.length)) {
+  if (util.isInteger(opts.length)) {
+    opts.length = [opts.length, opts.length];
+  }
+
+  var lowerLength = opts.length[0];
+  var upperLength = opts.length[1];
+
+  if (!util.isInteger(lowerLength) || !util.isInteger(upperLength)) {
     throw new Error('length must be an integer');
   }
-  if (opts.length < 1) {
+  if (upperLength < lowerLength) {
+    throw new Error('length upper bound must be greater than the lower bound');
+  }
+  if (lowerLength < 1) {
     throw new Error('length must be > 0');
   }
-  if (opts.length < characterRules.length) {
+  if (upperLength < characterRules.length) {
     throw new Error('length must be >= # of character sets passed');
   }
   if (characterRules.some(function (rule) { return !rule.characters })) {
@@ -51,9 +61,10 @@ function randomPassword(opts) {
   var minimumLength = characterRules
     .map(function (rule) { return rule.exactly || 1 })
     .reduce(function (l, r) { return l + r }, 0);
-  if (opts.length < minimumLength) {
+  if (upperLength < minimumLength) {
     throw new Error('length is too short for character set rules');
   }
+  lowerLength = Math.max(lowerLength, minimumLength);
 
   var allExactly = characterRules.every(function (rule) { return rule.exactly });
   if (allExactly) {
@@ -63,9 +74,11 @@ function randomPassword(opts) {
     }
   }
 
+  var length = opts.random.between(lowerLength, upperLength);
+
   var result;
   do {
-    result = generatePassword(characterRules, opts.length, opts.random);
+    result = generatePassword(characterRules, length, opts.random);
   } while (!opts.predicate(result));
   return result;
 }

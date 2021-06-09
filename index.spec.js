@@ -5,6 +5,7 @@ describe('passwordGenerator', () => {
 
   beforeEach(() => {
     random = {
+      between: jest.fn((x, y) => y),
       choose: jest.fn(),
       shuffle: jest.fn(x => x),
     };
@@ -19,6 +20,10 @@ describe('passwordGenerator', () => {
 
   it('throws an error when passed a length that is not an integer', () => {
     expect(() => randomPassword({ length: 'not-an-integer' })).toThrow('length must be an integer');
+  });
+
+  it('throws an error when passed an upper length that is not an integer', () => {
+    expect(() => randomPassword({ length: [123, 'not-an-integer'] })).toThrow('length must be an integer');
   });
 
   it('throws an error when passed a length less than 1', () => {
@@ -80,6 +85,49 @@ describe('passwordGenerator', () => {
     });
 
     expect(result).toBe('cbaabc');
+  });
+
+  describe('when given a range for length', () => {
+
+    it('throws an error when upper bound is less than the lower bound', () => {
+      expect(() => randomPassword({
+        length: [42, 41],
+      })).toThrow('length upper bound must be greater than the lower bound');
+    });
+
+    it('returns sequence with length between the passed range', () => {
+      random.between.mockReturnValueOnce(5);
+      random.choose.mockImplementation(x => x);
+
+      expect(randomPassword({
+        length: [2, 10],
+        characters: 'a',
+        random
+      })).toBe('aaaaa');
+      expect(random.between).toHaveBeenCalledWith(2, 10);
+    });
+
+    it('throws an error when upper bound is less than the totaled number of exactly character sets + required sets', () => {
+      expect(() => randomPassword({
+        length: [1, 42],
+        characters: [
+          'abc',
+          { characters: '123', exactly: 42 }
+        ]
+      })).toThrow('length is too short for character set rules');
+    });
+
+    it('uses the effective minimum length as the lower bound when it is greater than the passed lower bound', () => {
+      const password = randomPassword({
+        length: [1, 42],
+        characters: [
+          'abc',
+          { characters: '123', exactly: 41 }
+        ]
+      });
+      expect(password.length).toBe(42);
+    });
+
   });
 
   describe('when passed multiple character sets', () => {
