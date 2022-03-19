@@ -26,9 +26,9 @@
     "secure-random": "^1.1.2"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
-    "jest": "^27.0.4",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.2"
+    "eslint": "^8.11.0",
+    "jest": "^27.5.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
